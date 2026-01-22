@@ -1,0 +1,7 @@
+plan:
+  max_steps: 100
+  max_duration_minutes: 30
+  max_estimated_cost_usd: 10
+execution:
+  max_tool_calls: 500
+  max_parallelism: 4

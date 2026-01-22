@@ -1,0 +1,119 @@
+{
+  "name": "团队治理约束配置",
+  "version": "1.0.0",
+  "description": "通过Prompt工程实现的软约束治理框架，适用于Claude Code",
+  "governance": {
+    "enabled": true,
+    "mode": "prompt-based",
+    "strictness": "medium"
+  },
+  "constraints": {
+    "structured_logging": {
+      "enabled": true,
+      "format": "json",
+      "max_summary_length": 50,
+      "require_decision_log": true
+    },
+    "event_tracking": {
+      "enabled": true,
+      "track_tool_calls": true,
+      "track_risk_level": true,
+      "log_format": "json"
+    },
+    "human_in_the_loop": {
+      "enabled": true,
+      "triggers": [
+        "file_write_over_100_lines",
+        "file_delete",
+        "external_api_call",
+        "shell_command",
+        "config_file_modification"
+      ],
+      "approval_required": true
+    },
+    "code_governance": {
+      "enabled": true,
+      "require_comments": true,
+      "require_tests": true,
+      "require_pr_description": true,
+      "git_workflow": true
+    },
+    "explainability": {
+      "enabled": true,
+      "max_explanation_length": 50,
+      "require_alternatives": true,
+      "min_alternatives": 2,
+      "structured_output": true,
+      "no_verbose_thinking": true
+    },
+    "quotas": {
+      "enabled": true,
+      "max_steps": 20,
+      "max_duration_minutes": 10,
+      "max_tool_calls": 50,
+      "warning_threshold": 0.8,
+      "report_interval": 5
+    }
+  },
+  "blacklist": {
+    "commands": [
+      "DROP TABLE",
+      "kubectl delete",
+      "rm -rf /",
+      "chmod 777",
+      "eval("
+    ],
+    "paths": [
+      "/etc/passwd",
+      "/var/lib/kubelet",
+      "node_modules/",
+      ".git/"
+    ],
+    "apis": [
+      "production_database_direct",
+      "unencrypted_external_api",
+      "payment_gateway"
+    ]
+  },
+  "whitelist": {
+    "repositories": [
+      "/src/*",
+      "/test/*",
+      "/docs/*"
+    ],
+    "tools": [
+      "read_file",
+      "write_file",
+      "edit_file",
+      "run_command",
+      "grep_search"
+    ]
+  },
+  "prompts": {
+    "system_prompt_path": "./governance-master.md",
+    "role_prompts": {
+      "planner": "./planner.md",
+      "executor": "./executor.md",
+      "reviewer": "./reviewer.md",
+      "tester": "./tester.md"
+    }
+  },
+  "templates": {
+    "intent": "../templates/intent.md",
+    "change_proposal": "../templates/change-proposal.md",
+    "pr_description": "../templates/pr-description.md"
+  },
+  "integration": {
+    "yuque": {
+      "enabled": true,
+      "cache_dir": "~/.cache/yuque",
+      "keyword_matching": true
+    },
+    "remote_governance": {
+      "enabled": true,
+      "url": "${GOVERNANCE_REPO_URL}",
+      "cache_ttl_seconds": 600,
+      "fallback_to_local": true
+    }
+  }
+}

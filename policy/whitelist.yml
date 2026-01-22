@@ -1,0 +1,8 @@
+repos:
+  - oms
+  - wms
+  - tms
+  - shared-libs
+branches:
+  - master
+  - develop

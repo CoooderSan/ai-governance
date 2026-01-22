@@ -1,0 +1,7 @@
+forbidden_commands:
+    - DROP TABLE
+    - kubectl delete
+    - rm -rf /
+forbidden_path:
+    - /etc/passwd
+    - /var/lib/kubelet
