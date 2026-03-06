@@ -49,7 +49,30 @@
 
 ## 🚀 快速开始
 
-### 方式一：直接复制 Prompt（最简单）
+### 推荐方式：使用 Trellis（自动集成）
+
+**完整教程**: [Trellis 使用教程](./docs/trellis-usage-guide.md)
+
+```bash
+# 1. 安装 Trellis
+npm install -g @ecochain/trellis
+
+# 2. 初始化项目
+cd your-project
+trellis init -u your-name --claude
+
+# 3. 启动 Claude Code
+# Governance 约束和 Skills 会自动同步并注入
+```
+
+**自动同步机制**：
+- 每次启动 Claude Code 会话时，自动从本仓库同步最新的 `spec/` 和 `skills/`
+- 无需手动配置，开箱即用
+- 支持语雀文档集成（详见使用教程）
+
+---
+
+### 方式二：直接复制 Prompt（临时使用）
 
 1. 打开 `prompts/governance-master.md`
 2. 复制全部内容
@@ -62,7 +85,7 @@
    现在开始我的任务：[你的需求]
    ```
 
-### 方式二：配置 Skills（推荐，自动加载）
+### 方式三：配置 Skills（手动集成）
 
 1. 安装 Skill：
    ```bash
@@ -193,10 +216,10 @@
 
 ## 📚 相关文档
 
-- [快速开始指南](../QUICK_START.md) - 详细安装和使用步骤
+- **[Trellis 使用教程](./docs/trellis-usage-guide.md)** - 完整的安装、配置和使用指南 ⭐
+- [Trellis + Governance 集成指南](./docs/trellis-governance-guide.md) - Governance 自动同步机制
 - [使用示例](./examples/example-usage.md) - 实际场景示例
 - [治理约束完整文档](./prompts/governance-master.md) - 完整约束说明
-- [Skills 配置](../skills/packages/agent-governance-bootstrap/README.md) - 技能包说明
 
 ---
 
@@ -212,6 +235,13 @@ Skills 仓库中的 `agent-governance-bootstrap` 会：
 
 ## 📊 版本历史
 
+- **v1.2.0** (2026-03-06)
+  - ✅ 整合到单一仓库（master + develop 分支）
+  - ✅ 添加 Skills（governance-init, governance-sync-yuque, governance-update）
+  - ✅ 添加语雀知识库集成规范
+  - ✅ 完整的 Trellis 使用教程
+  - ✅ 自动同步机制（session-start hook）
+
 - **v1.0.0** (2026-01-22)
   - ✅ 完整的6大治理约束
   - ✅ 基于Prompt工程的软约束实现
@@ -221,5 +251,6 @@ Skills 仓库中的 `agent-governance-bootstrap` 会：
 
 ---
 
-**维护者**：组织治理团队  
-**更新时间**：2026-01-22
+**维护者**：组织治理团队
+**更新时间**：2026-03-06
+**当前版本**：v1.2.0
