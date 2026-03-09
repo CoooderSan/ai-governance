@@ -235,7 +235,12 @@ Skills 仓库中的 `agent-governance-bootstrap` 会：
 
 ## 📊 版本历史
 
-- **v1.2.0** (2026-03-06)
+- **v1.2.0** (2026-03-09)
+  - ✅ 更新 Intent 模板为 Trellis PRD 风格
+  - ✅ 新增 Out of Scope、Definition of Done、Technical Design 等章节
+  - ✅ 简化约束部分，提升开发体验
+
+- **v1.1.0** (2026-03-06)
   - ✅ 整合到单一仓库（master + develop 分支）
   - ✅ 添加 Skills（governance-init, governance-sync-yuque, governance-update）
   - ✅ 添加语雀知识库集成规范
@@ -252,5 +257,5 @@ Skills 仓库中的 `agent-governance-bootstrap` 会：
 ---
 
 **维护者**：组织治理团队
-**更新时间**：2026-03-06
+**更新时间**：2026-03-09
 **当前版本**：v1.2.0

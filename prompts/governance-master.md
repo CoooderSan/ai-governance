@@ -458,14 +458,17 @@ grep -r "关键词" ~/.cache/yuque/ --include="*.md"
 
 ## 📚 相关文档
 
-- [Intent 模板](../templates/intent.md) - 需求描述规范
+- [Intent 模板](../templates/intent.md) - PRD 风格的需求文档模板（参考 Trellis）
 - [Change Proposal 模板](../templates/change-proposal.md) - 变更提案格式
 - [风险矩阵](../policy/risk-matrix.md) - 风险评估标准
 - [配额策略](../policy/quotas.yml) - 资源限制配置
 
 ---
 
-**版本**：v1.1.0  
-**更新时间**：2026-01-25  
-**维护者**：组织治理团队  
-**更新内容**：新增语雀文档上下文注入机制
+**版本**：v1.2.0
+**更新时间**：2026-03-09
+**维护者**：组织治理团队
+**更新内容**：
+- 更新 Intent 模板为 Trellis PRD 风格
+- 新增 Out of Scope、Definition of Done、Technical Design 等章节
+- 简化约束部分，提升可用性
